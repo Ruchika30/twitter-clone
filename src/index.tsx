@@ -3,13 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+import { worker } from '../src/mocks/mswWorker'
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const queryClient = new QueryClient()
+
+worker.start()
+
+
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID!}>
+        <App />
+      </GoogleOAuthProvider>
+    </QueryClientProvider>
+
   </React.StrictMode>
 );
 
