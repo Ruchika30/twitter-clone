@@ -45,7 +45,7 @@ function MenuBar() {
             <MenuOption Icon={MailOutlineIcon} menuName="Messages" route='/messages' />
             <MenuOption Icon={BookmarkBorderIcon} menuName="Bookmarks" route='/bookmarks' />
             <MenuOption Icon={ListAltIcon} menuName="Lists" route='/lists' />
-            <MenuOption Icon={PermIdentityIcon} menuName="Profile" route="/profile" route='' />
+            <MenuOption Icon={PermIdentityIcon} menuName="Profile" route="/profile" route='/profile' />
             <MenuOption Icon={MoreHorizIcon} menuName="More" route='/more' />
 
 

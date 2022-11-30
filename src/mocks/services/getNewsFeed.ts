@@ -1,6 +1,6 @@
 
 
-export default {
+const response = {
     "data": [
         {
             "screen_name": "Joh Doe",
@@ -103,3 +103,6 @@ export default {
     ]
 
 }
+
+
+export default response

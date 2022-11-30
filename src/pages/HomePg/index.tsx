@@ -2,9 +2,8 @@
 
 import MenuOptions from '../../components/MenuBar'
 import Widgets from '../../components/Widgets'
-import NewsFeeed from './NewsFeed'
 import TweetContainer from '../../components/TweetContainer'
-import Post from './NewsFeed/Post'
+import Post from '../../components/Posts'
 import useGetNewsFeed from './useGetNewsFeed';
 import NewFeedHeader from './NewsFeedHeader'
 
@@ -18,6 +17,9 @@ const HomePage = () => {
         console.log("New tweet")
     }
 
+    if (isLoadingNewsFeed) {
+        return <h2>Loading ...</h2>
+    }
 
     return (
         <div className="w-screen h-screen flex bg-white dark:bg-black" >

@@ -2,7 +2,7 @@
 
 import TweetContainer from '../../../components/TweetContainer'
 import useGetNewsFeed from '../useGetNewsFeed';
-import Post from './Post';
+import Posts from '../../../components/Posts';
 import './style.css'
 
 const NewsFeed = (): JSX.Element => {
@@ -13,6 +13,9 @@ const NewsFeed = (): JSX.Element => {
         console.log("New tweet")
     }
 
+    if (isLoadingNewsFeed) {
+        return <h1>Loaidng ..</h1>
+    }
 
 
     return (
@@ -31,7 +34,7 @@ const NewsFeed = (): JSX.Element => {
 
 
             {/* Post list */}
-            <Post newsFeedData={newsFeedData} />
+            <Posts newsFeedData={newsFeedData} />
 
 
 

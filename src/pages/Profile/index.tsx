@@ -2,10 +2,16 @@
 
 import MenuOptions from '../../components/MenuBar'
 import Widgets from '../../components/Widgets'
-
+import useGetProfileDetails from './useGetProfileDetails'
+import ProfileBio from './ProfileBio'
+import TweetsList from './TweetsListTabs'
 
 const ProfilePg = () => {
+    const { profileData = { tweets: [] }, isLoadingProfileData } = useGetProfileDetails()
 
+    if (isLoadingProfileData) {
+        return <h1>Loading...</h1>
+    }
     return (
         <div className="w-screen h-screen flex bg-white dark:bg-black" >
 
@@ -15,7 +21,7 @@ const ProfilePg = () => {
             </div>
 
 
-            {/* feeds */}
+            {/* Main area */}
             <div className="text-white h-full border border-solid border-gray-100	
                 overflow-y-auto w-3/6 ">
 
@@ -24,7 +30,12 @@ const ProfilePg = () => {
                     <h1 className='text-lg text-black  font-bold py-3 pl-4'>Profile</h1>
                 </div>
 
+                {/* ProfileBio */}
+                <ProfileBio details={profileData} />
 
+
+                {/* tweets  */}
+                <TweetsList tweetList={profileData?.tweets} />
             </div>
 
             {/* side widgets */}
