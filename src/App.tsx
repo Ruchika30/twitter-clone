@@ -10,6 +10,7 @@ const MessagePg = lazy(() => import('./pages/Messages'));
 const BookmarkPg = lazy(() => import('./pages/Bookmarks'));
 const listPg = lazy(() => import('./pages/List'));
 const MorePg = lazy(() => import('./pages/More'));
+const TweetInputPg = lazy(() => import('./pages/TweetInput'));
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path="/bookmarks" component={BookmarkPg} />
           <Route exact path="/lists" component={listPg} />
           <Route exact path="/more" component={MorePg} />
+          <Route exact path="/tweet" component={TweetInputPg} />
         </Switch>
       </Suspense>
     </BrowserRouter >

@@ -1,23 +1,38 @@
 
 
+import { useState } from 'react'
 import MenuOptions from '../../components/MenuBar'
 import Widgets from '../../components/Widgets'
 import useGetProfileDetails from './useGetProfileDetails'
 import ProfileBio from './ProfileBio'
 import TweetsList from './TweetsListTabs'
+import ModalComponent from '../../components/TweetModal'
+import useWindowSize from '../../hooks/useWindowSize'
 
 const ProfilePg = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    const { isMobile } = useWindowSize()
+
     const { profileData = { tweets: [] }, isLoadingProfileData } = useGetProfileDetails()
 
     if (isLoadingProfileData) {
         return <h1>Loading...</h1>
     }
+    const openTweetModal = () => {
+        setIsOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsOpen(false)
+    }
+
+
     return (
         <div className="w-screen h-screen flex bg-white dark:bg-black" >
 
             {/* Menu sidebar */}
             <div className='w-2/6 flex align-middle justify-end'>
-                <MenuOptions />
+                <MenuOptions openTweetModal={openTweetModal} />
             </div>
 
 
@@ -39,9 +54,10 @@ const ProfilePg = () => {
             </div>
 
             {/* side widgets */}
-            <div className='w-2/6 flex-auto'>
-                <Widgets />
-            </div>
+            <Widgets />
+
+            {/* Modal */}
+            <ModalComponent isMobile={isMobile} isOpen={isOpen} closeModal={closeModal} />
 
         </div >
     )

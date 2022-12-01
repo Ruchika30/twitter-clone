@@ -23,16 +23,11 @@ const BookmarksPg = () => {
                     <h1 className='text-lg text-black  font-bold py-3 pl-4'>Bookmarks</h1>
                 </div>
 
-
-
-
-
             </div>
 
             {/* side widgets */}
-            <div className='w-2/6 flex-auto'>
-                <Widgets />
-            </div>
+            <Widgets />
+
 
         </div >
     )

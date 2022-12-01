@@ -25,9 +25,7 @@ const MessagePg = () => {
             </div>
 
             {/* side widgets */}
-            <div className='w-2/6 flex-auto'>
-                <Widgets />
-            </div>
+            <Widgets />
 
         </div >
     )

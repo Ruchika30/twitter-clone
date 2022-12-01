@@ -7,11 +7,12 @@ import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfi
 import EventRepeatOutlinedIcon from '@mui/icons-material/EventRepeatOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import useAutosizeTextArea from "./useAutosizeTextArea";
+import TweetButton from "../TweetButton";
 
 const icons = [ImageOutlinedIcon, GifBoxOutlinedIcon, SentimentSatisfiedOutlinedIcon, EventRepeatOutlinedIcon, LocationOnOutlinedIcon]
 
-const TweetContainer = ({ onClickTweet, isFromModal = false }:
-    { onClickTweet: () => void, isFromModal?: boolean }) => {
+const TweetContainer = ({ submitTweet, isFromModal = false }:
+    { submitTweet: () => void, isFromModal?: boolean }) => {
 
     const getInitailRows = useMemo(() => {
         return isFromModal ? 4 : 1
@@ -24,8 +25,8 @@ const TweetContainer = ({ onClickTweet, isFromModal = false }:
     useAutosizeTextArea(textAreaRef.current, value);
 
 
-    const handleChange = (evt: any) => {
-        const val = evt.target?.value;
+    const handleChange = (e: any) => {
+        const val = e.target?.value;
         setRows(4)
         setValue(val);
     };
@@ -35,7 +36,7 @@ const TweetContainer = ({ onClickTweet, isFromModal = false }:
     }, [value.length]
     )
     return (
-        <div className="newsFeed">
+        <div>
             <div className='flex items-start border-b border-solid border-gray-100'>
 
                 {/* avatar */}
@@ -73,12 +74,12 @@ const TweetContainer = ({ onClickTweet, isFromModal = false }:
 
 
                             {/* tweet button */}
-                            <button
-                                disabled={checkIfDisabled()}
-                                className='rounded-xl py-1 px-4 font-bold capitalize bg-twitterBlue disabled:bg-slate-300 text-white'
-                                onChange={handleChange} >
-                                Tweet
-                            </button>
+                            <TweetButton
+                                onSubmit={submitTweet}
+                                checkIfDisabled={checkIfDisabled}
+                                onChange={handleChange}
+                                label="Tweet"
+                            />
 
                         </div>
                     </div>

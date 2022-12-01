@@ -12,3 +12,4 @@ export { default as CloseIcon } from '@mui/icons-material/Close';
 export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as GoogleIcon } from '@mui/icons-material/Google';
 export { default as EditIcom } from '@mui/icons-material/DriveFileRenameOutline';
+export { default as BackIcon } from '@mui/icons-material/KeyboardBackspace';

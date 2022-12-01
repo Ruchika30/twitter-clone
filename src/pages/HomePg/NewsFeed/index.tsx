@@ -9,7 +9,7 @@ const NewsFeed = (): JSX.Element => {
     const { newsFeedData, isLoadingNewsFeed } = useGetNewsFeed()
 
 
-    const onClickTweet = () => {
+    const submitTweet = () => {
         console.log("New tweet")
     }
 
@@ -29,7 +29,7 @@ const NewsFeed = (): JSX.Element => {
             </div>
 
             {/* Tweet container */}
-            <TweetContainer onClickTweet={onClickTweet} />
+            <TweetContainer submitTweet={submitTweet} />
 
 
 

@@ -1,4 +1,5 @@
 
+import { useState } from 'react'
 import MenuOptions from '../../components/MenuBar'
 import Widgets from '../../components/Widgets'
 import TweetContainer from '../../components/TweetContainer'
@@ -7,18 +8,32 @@ import useGetNewsFeed from './useGetNewsFeed';
 import NewFeedHeader from './NewsFeedHeader'
 import { EditIcom } from '../../components/Icons'
 import { color } from '../../tokens/color';
+import ModalComponent from '../../components/TweetModal'
+import useWindowSize from '../../hooks/useWindowSize'
 
 
 const HomePage = () => {
     const { newsFeedData, isLoadingNewsFeed } = useGetNewsFeed()
+    const [isOpen, setIsOpen] = useState(false)
+    const { isMobile, } = useWindowSize()
+
+
+    if (isLoadingNewsFeed) {
+        return <h2>Loading ...</h2>
+    }
 
 
     const onClickTweet = () => {
         console.log("New tweet")
     }
 
-    if (isLoadingNewsFeed) {
-        return <h2>Loading ...</h2>
+    const closeModal = () => {
+        setIsOpen(false)
+    }
+
+
+    const openTweetModal = () => {
+        setIsOpen(true)
     }
 
     return (
@@ -26,7 +41,7 @@ const HomePage = () => {
 
             {/* Menu panel */}
             <div className=' hidden md:flex w-2/6 align-middle justify-end'>
-                <MenuOptions />
+                <MenuOptions openTweetModal={openTweetModal} />
             </div>
 
 
@@ -38,22 +53,27 @@ const HomePage = () => {
                 <NewFeedHeader heading="Home" />
 
                 {/* Tweet container */}
-                <TweetContainer onClickTweet={onClickTweet} />
-
+                <div className='hidden md:block'>
+                    <TweetContainer submitTweet={onClickTweet} />
+                </div>
 
                 {/* Post list */}
                 <Post newsFeedData={newsFeedData} />
             </div>
 
 
-            {/* Edit icon */}
-            <div className="w-14 h-14 bottom-10 right-5 absolute bg-twitterBlue rounded-full flex items-center justify-center"
+            {/* TweetIcon - mobileView */}
+            <div className="w-14 h-14 md:hidden bottom-10 right-5 absolute bg-twitterBlue rounded-full flex items-center justify-center"
+                onClick={openTweetModal}
             >
                 <EditIcom sx={{ color: color.white }} />
             </div>
 
             {/* side widgets */}
             <Widgets />
+
+            {/* Modal */}
+            <ModalComponent isMobile={isMobile} isOpen={isOpen} closeModal={closeModal} />
 
         </div >
     )
