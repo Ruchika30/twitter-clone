@@ -1,11 +1,12 @@
 //@ts-nocheck
-import { createContext, useMemo } from 'react';
+import { createContext, useCallback, } from 'react';
 
 export const AuthContext = (createContext({ isLoggedIn: () => boolean }))
 
 
 const AuthProvider = (props: any) => {
-    const isLoggedIn = useMemo(() => {
+
+    const isLoggedIn = useCallback(() => {
         if (!localStorage.getItem('accessToken')) {
             return false
         }

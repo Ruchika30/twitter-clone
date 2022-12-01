@@ -43,14 +43,18 @@ function MenuBar() {
 
             {/* menu options */}
             {
-                isLoggedIn ? <LoggedinView /> : <GuestUserView />
+                isLoggedIn() ? <LoggedinView /> : <GuestUserView />
             }
 
 
-            {/* tweet btn */}
-            {isLoggedIn && <div className="mt-2">
-                <TweetBtn onClick={openTweetModal} />
-            </div>}
+            {/* menu panel tweet btn */}
+            {isLoggedIn() &&
+                <div className="mt-2">
+                    <TweetBtn onClick={openTweetModal} />
+                </div>
+            }
+
+
 
 
             {/* Modal */}
