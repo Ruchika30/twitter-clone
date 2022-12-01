@@ -1,5 +1,5 @@
 
-
+import { useContext } from 'react'
 import MenuOptions from '../../components/MenuBar'
 import Widgets from '../../components/Widgets'
 import TweetContainer from '../../components/TweetContainer'

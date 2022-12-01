@@ -1,5 +1,5 @@
 
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import GifBoxOutlinedIcon from '@mui/icons-material/GifBoxOutlined';
@@ -10,17 +10,13 @@ import useAutosizeTextArea from "./useAutosizeTextArea";
 
 const icons = [ImageOutlinedIcon, GifBoxOutlinedIcon, SentimentSatisfiedOutlinedIcon, EventRepeatOutlinedIcon, LocationOnOutlinedIcon]
 
-
 const TweetContainer = ({ onClickTweet, isFromModal = false }:
-
     { onClickTweet: () => void, isFromModal?: boolean }) => {
-
 
     const getInitailRows = useMemo(() => {
         return isFromModal ? 4 : 1
     }, [isFromModal]
     )
-
 
     const [value, setValue] = useState("");
     const [rows, setRows] = useState(getInitailRows)
@@ -28,12 +24,16 @@ const TweetContainer = ({ onClickTweet, isFromModal = false }:
     useAutosizeTextArea(textAreaRef.current, value);
 
 
-    const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleChange = (evt: any) => {
         const val = evt.target?.value;
         setRows(4)
         setValue(val);
     };
 
+    const checkIfDisabled = useCallback(() => {
+        return !value.length
+    }, [value.length]
+    )
     return (
         <div className="newsFeed">
             <div className='flex items-start border-b border-solid border-gray-100'>
@@ -47,7 +47,8 @@ const TweetContainer = ({ onClickTweet, isFromModal = false }:
 
                 {/* Tweet InputBox */}
                 <div className='w-full mt-4'>
-                    <div className='border-b flex border-solid border-gray-100 w-full mr-4 overflow-y-scroll max-h-48'>
+                    <div className='border-b flex border-solid border-gray-100 w-full mr-4 overflow-y-scroll max-h-48'
+                        style={{ height: isFromModal ? '150px' : '50px' }}>
                         <textarea
                             ref={textAreaRef}
                             rows={rows}
@@ -71,18 +72,20 @@ const TweetContainer = ({ onClickTweet, isFromModal = false }:
                             </div>
 
 
-                            <button className='rounded-xl py-1 px-4 font-bold capitalize bg-twitterBlue text-white'>Tweet</button>
+                            {/* tweet button */}
+                            <button
+                                disabled={checkIfDisabled()}
+                                className='rounded-xl py-1 px-4 font-bold capitalize bg-twitterBlue disabled:bg-slate-300 text-white'
+                                onChange={handleChange} >
+                                Tweet
+                            </button>
 
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div>
 
-
-
-            </div>
         </div>
     )
 }

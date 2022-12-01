@@ -1,17 +1,20 @@
 //@ts-nocheck
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom"
-import { HomeIcon, TwitterIcon, MoreHorizIcon, PermIdentityIcon, ListAltIcon, TagIcon, BookmarkBorderIcon, MailOutlineIcon, CloseIcon, NotificationsNoneIcon } from '../icons'
+import { TwitterIcon, CloseIcon } from '../Icons'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import MenuOption from './MenuOption'
 import TweetBtn from './TweetButton'
 import { color } from '../../tokens/color'
 import TweetContainer from '../TweetContainer'
 import { modalContentStyle } from './style'
+import { AuthContext } from '../../use-auth'
+import LoggedinView from "./LoggedInView";
+import GuestUserView from './GuestUserView'
 
 
 function MenuBar() {
+    const { isLoggedIn } = useContext(AuthContext);
     const history = useHistory()
     const [isOpen, setIsOpen] = useState(false)
 
@@ -39,20 +42,15 @@ function MenuBar() {
             </div>
 
             {/* menu options */}
-            <MenuOption Icon={HomeIcon} menuName="Home" route="/" />
-            <MenuOption Icon={TagIcon} menuName="Explore" route="/explore" />
-            <MenuOption Icon={NotificationsNoneIcon} menuName="Notifications" route='/notifications' />
-            <MenuOption Icon={MailOutlineIcon} menuName="Messages" route='/messages' />
-            <MenuOption Icon={BookmarkBorderIcon} menuName="Bookmarks" route='/bookmarks' />
-            <MenuOption Icon={ListAltIcon} menuName="Lists" route='/lists' />
-            <MenuOption Icon={PermIdentityIcon} menuName="Profile" route="/profile" route='/profile' />
-            <MenuOption Icon={MoreHorizIcon} menuName="More" route='/more' />
+            {
+                isLoggedIn ? <LoggedinView /> : <GuestUserView />
+            }
 
 
             {/* tweet btn */}
-            <div className="mt-2">
+            {isLoggedIn && <div className="mt-2">
                 <TweetBtn onClick={openTweetModal} />
-            </div>
+            </div>}
 
 
             {/* Modal */}

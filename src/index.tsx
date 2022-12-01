@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { QueryClient, QueryClientProvider } from 'react-query'
-
 import { worker } from '../src/mocks/mswWorker'
+import AuthProvider from './use-auth';
 
 
 const root = ReactDOM.createRoot(
@@ -21,10 +21,11 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID!}>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </GoogleOAuthProvider>
     </QueryClientProvider>
-
   </React.StrictMode>
 );
 

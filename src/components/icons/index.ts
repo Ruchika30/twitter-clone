@@ -9,3 +9,4 @@ export { default as TwitterIcon } from "@mui/icons-material/Twitter";
 export { default as TagIcon } from '@mui/icons-material/Tag';
 export { default as NotificationsNoneIcon } from "@material-ui/icons/NotificationsNone";
 export { default as CloseIcon } from '@mui/icons-material/Close';
+export { default as SettingsIcon } from '@mui/icons-material/Settings';
