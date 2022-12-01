@@ -23,7 +23,7 @@ const ProfileBio = ({ details }: { details: any }) => {
                 <img src={profileImage} alt="profileImage" className="w-40 rounded-full" />
             </div>
 
-            <div className="p-4 text-black ">
+            <div className="p-4 text-black dark:text-white">
                 <div className="font-extrabold text-xl">{screenName}</div>
                 <div className="">@{userName}</div>
                 <div className="mt-2">{description}</div>
@@ -38,7 +38,6 @@ const ProfileBio = ({ details }: { details: any }) => {
                 </div>
             </div>
 
-            {/* tweets  */}
 
 
         </>

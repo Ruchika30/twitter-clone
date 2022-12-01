@@ -1,28 +1,23 @@
 
 
-const LoggedInView = () => {
+const LoggedInView = ({ data }: { data?: any }) => {
     return (
         <>
-            <div className="m-4 p-4 rounded-lg bg-slate-100">
-                <h2 className="font-extrabold text-lg">
+            <div className="m-4 p-4 rounded-lg bg-slate-100 dark:bg-slate-800">
+                <h2 className="font-extrabold text-lg dark:text-white">
                     What's happening ?
                 </h2>
 
                 <ul className="mt-4">
-                    <li className="list-none">
-                        <h4 className="text-xs">Entertainment</h4>
-                        <h3 className="text-sm text-black font-bold">The latest from Season 16 of Bigg Boss</h3>
-                    </li>
-
-
-                    <li className="list-none mt-4">
-                        <h4 className="text-xs">Business & finance</h4>
-                        <h3 className="text-sm text-black font-bold">#Options</h3>
-                    </li>
+                    {data?.map((item: any) => {
+                        return (
+                            <li className="list-none my-4 ">
+                                <h4 className="text-xs dark:text-gray-500">{item?.key}</h4>
+                                <h3 className="text-sm text-black dark:text-white font-bold">{item?.text}</h3>
+                            </li>
+                        )
+                    })}
                 </ul>
-
-
-
             </div>
         </>
     )

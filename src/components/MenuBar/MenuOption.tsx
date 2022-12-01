@@ -9,8 +9,8 @@ const MenuOption = ({ menuName, Icon, route = '/' }: {
     const history = useHistory()
 
     return (
-        <li className="cursor-pointer list-none">
-            <div className="hover:bg-gray-200 flex items-center p-4 w-auto rounded-xl"
+        <li className="cursor-pointer list-none dark:text-white">
+            <div className="hover:bg-gray-200 dark:hover:bg-zinc-800 flex items-center p-4 w-auto rounded-xl"
                 onClick={() => history.push(route)}
             >
                 <div className="pr-3 block">

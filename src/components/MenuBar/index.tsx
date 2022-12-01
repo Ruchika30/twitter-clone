@@ -17,8 +17,8 @@ function MenuBar({ openTweetModal }: { openTweetModal?: any }) {
     return (
         <div className="w-2/3 mt-4 mr-10">
 
-            {/* twitter icon */}
-            <div className="w-14 h-14 hover:bg-blue-100 rounded-full flex items-center justify-center"
+            {/* twitter bird icon */}
+            <div className="w-14 h-14 hover:bg-blue-100  dark:hover:bg-zinc-800  rounded-full flex items-center justify-center"
                 onClick={() => history.push('/')}
             >
                 <TwitterIcon fontSize="large"

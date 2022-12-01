@@ -49,7 +49,7 @@ const response = {
         "tweets": [
             {
                 "screen_name": "Mary Curie",
-                "username": '@maryCurie',
+                "username": 'maryCurie',
                 "author_id": "2244994945",
                 "avatar": 'https://i.pravatar.cc/150?img=25',
                 "created_at": "2020-02-14T19:00:55.000Z",
@@ -63,7 +63,7 @@ const response = {
             },
             {
                 "screen_name": "Mary Curie",
-                "username": '@maryCurie',
+                "username": 'maryCurie',
                 "author_id": "2244994945",
                 "avatar": 'https://i.pravatar.cc/150?img=25',
                 "created_at": "2020-02-12T17:09:56.000Z",
@@ -77,7 +77,7 @@ const response = {
             },
             {
                 "screen_name": "Mary Curie",
-                "username": '@maryCurie',
+                "username": 'maryCurie',
                 "author_id": "2244994945",
                 "avatar": 'https://i.pravatar.cc/150?img=25',
                 "created_at": "2019-11-27T20:26:41.000Z",
@@ -91,7 +91,7 @@ const response = {
             },
             {
                 "screen_name": "Mary Curie",
-                "username": '@maryCurie',
+                "username": 'maryCurie',
                 "author_id": "2244994945",
                 "avatar": 'https://i.pravatar.cc/150?img=25',
                 "created_at": "2020-02-14T19:00:55.000Z",
@@ -105,7 +105,7 @@ const response = {
             },
             {
                 "screen_name": "Mary Curie",
-                "username": '@maryCurie',
+                "username": 'maryCurie',
                 "author_id": "2244994945",
                 "avatar": 'https://i.pravatar.cc/150?img=25',
                 "created_at": "2020-02-12T17:09:56.000Z",
@@ -119,7 +119,7 @@ const response = {
             },
             {
                 "screen_name": "Mary Curie",
-                "username": '@maryCurie',
+                "username": 'maryCurie',
                 "author_id": "2244994945",
                 "avatar": 'https://i.pravatar.cc/150?img=25',
                 "created_at": "2019-11-27T20:26:41.000Z",

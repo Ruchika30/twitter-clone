@@ -8,6 +8,7 @@ import EventRepeatOutlinedIcon from '@mui/icons-material/EventRepeatOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import useAutosizeTextArea from "./useAutosizeTextArea";
 import TweetButton from "../TweetButton";
+import clsx from 'clsx'
 
 const icons = [ImageOutlinedIcon, GifBoxOutlinedIcon, SentimentSatisfiedOutlinedIcon, EventRepeatOutlinedIcon, LocationOnOutlinedIcon]
 
@@ -37,7 +38,7 @@ const TweetContainer = ({ submitTweet, isFromModal = false }:
     )
     return (
         <div>
-            <div className='flex items-start border-b border-solid border-gray-100'>
+            <div className='flex items-start border-b border-solid border-gray-100 dark:border-slate-700'>
 
                 {/* avatar */}
                 <div className='p-8 h-6 w-6 items-center flex justify-center'>
@@ -48,14 +49,14 @@ const TweetContainer = ({ submitTweet, isFromModal = false }:
 
                 {/* Tweet InputBox */}
                 <div className='w-full mt-4'>
-                    <div className='border-b flex border-solid border-gray-100 w-full mr-4 overflow-y-scroll max-h-48'
+                    <div className='border-b flex border-solid border-gray-100 dark:border-none  w-full mr-4 overflow-y-scroll max-h-48'
                         style={{ height: isFromModal ? '150px' : '50px' }}>
                         <textarea
                             ref={textAreaRef}
                             rows={rows}
                             onChange={handleChange}
                             placeholder="What's happening?"
-                            className='w-full focus:outline-none text-black text-xl placeholder-gray-600 pb-4'
+                            className={clsx('w-full focus:outline-none text-black  dark:text-gray-50 text-xl placeholder-gray-600 pb-4  dark:bg-black', { 'dark:bg-white': isFromModal })}
                         />
                     </div>
 

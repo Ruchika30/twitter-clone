@@ -46,7 +46,7 @@ const HomePage = () => {
 
 
             {/* News feed */}
-            <div className="text-white h-full border border-solid border-gray-100 overflow-y-auto
+            <div className="text-white h-full border border-solid border-gray-100  dark:border-slate-700 overflow-y-auto
                 md:w-3/6 sm:w-full">
 
                 {/* Heading */}

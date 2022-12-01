@@ -15,8 +15,6 @@ const TweetModal = ({ isMobile, isOpen, closeModal }: {
         console.log("New tweet")
     }
 
-
-
     const modalContentStyle = {
         position: 'absolute' as 'absolute',
         top: '30%',

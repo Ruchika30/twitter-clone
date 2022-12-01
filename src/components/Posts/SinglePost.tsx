@@ -26,7 +26,7 @@ const SinglePost = ({ screenName, userName, verified, avatar, beforeTime, text, 
 
 
     return (
-        <div className="flex my-4 border-b border-gray-100">
+        <div className="flex my-4 border-b border-gray-100 dark:border-slate-700	">
             <div className="px-4">
                 <Avatar src={avatar} />
             </div>
@@ -36,17 +36,17 @@ const SinglePost = ({ screenName, userName, verified, avatar, beforeTime, text, 
             <div className="w-full">
                 <div className="flex items-baseline">
 
-                    <h3 className="text-black font-bold mr-1">{screenName}</h3>
-                    <span className="text-sm text-slate-500 ">
+                    <h3 className="text-black  dark:text-slate-200 font-bold mr-1">{screenName}</h3>
+                    <span className="text-sm text-gray-400">
                         {verified &&
                             <VerifiedIcon fontSize="small" sx={{ color: color.twitterBlue }} />} @
                         {userName}
 
                     </span>
-                    <span className="text-sm text-slate-500 ml-1">{beforeTime}hr</span>
+                    <span className="text-sm text-gray-400 ml-1">{beforeTime}hr</span>
                 </div>
 
-                <div className="text-black text-sm">
+                <div className="text-black  dark:text-slate-200 text-sm">
                     <p>{text}</p>
                 </div>
 
@@ -55,20 +55,20 @@ const SinglePost = ({ screenName, userName, verified, avatar, beforeTime, text, 
                 <div className="flex my-4">
                     <div className="flex-1 flex justify-start">
                         <ChatBubbleOutlineOutlinedIcon fontSize="small" sx={{ color: 'grey' }} />
-                        <span className="text-black items-center text-sm ml-2 ">{comment}</span>
+                        <span className="text-black  dark:text-slate-200 items-center text-sm ml-2 ">{comment}</span>
                     </div>
                     <div className="flex-1 flex justify-start">
                         <RepeatIcon fontSize="small" sx={{ color: 'grey' }} />
-                        <span className="text-black items-center text-sm ml-2">{repost}</span>
+                        <span className="text-black   dark:text-slate-200 items-center text-sm ml-2">{repost}</span>
 
                     </div>
                     <div className="flex-1 flex justify-start ">
                         <FavoriteBorderIcon fontSize="small" sx={{ color: 'grey' }} />
-                        <span className="text-black items-center text-sm ml-2">{likes}</span>
+                        <span className="text-black   dark:text-slate-200 items-center text-sm ml-2">{likes}</span>
                     </div>
                     <div className="flex-1 flex justify-start">
                         <PublishIcon fontSize="small" sx={{ color: 'grey' }} />
-                        <span className="text-black items-center text-sm ml-2">{reshare}</span>
+                        <span className="text-black  dark:text-slate-200 items-center text-sm ml-2">{reshare}</span>
                     </div>
 
 
