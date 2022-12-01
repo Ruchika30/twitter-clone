@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Twitter-clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app supports Google Signup Login
+To view changes for Dark mode, kindly switch to Dark more under System Setting/ Appearance
 
 ## Available Scripts
 
