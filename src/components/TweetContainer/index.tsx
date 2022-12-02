@@ -12,8 +12,8 @@ import clsx from 'clsx'
 
 const icons = [ImageOutlinedIcon, GifBoxOutlinedIcon, SentimentSatisfiedOutlinedIcon, EventRepeatOutlinedIcon, LocationOnOutlinedIcon]
 
-const TweetContainer = ({ submitTweet, isFromModal = false }:
-    { submitTweet: () => void, isFromModal?: boolean }) => {
+const TweetContainer = ({ onSubmit, isFromModal = false }:
+    { onSubmit: () => void, isFromModal?: boolean }) => {
 
     const getInitailRows = useMemo(() => {
         return isFromModal ? 4 : 1
@@ -76,7 +76,7 @@ const TweetContainer = ({ submitTweet, isFromModal = false }:
 
                             {/* tweet button */}
                             <TweetButton
-                                onSubmit={submitTweet}
+                                onSubmit={onSubmit}
                                 checkIfDisabled={checkIfDisabled}
                                 onChange={handleChange}
                                 label="Tweet"

@@ -13,3 +13,9 @@ export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as GoogleIcon } from '@mui/icons-material/Google';
 export { default as EditIcom } from '@mui/icons-material/DriveFileRenameOutline';
 export { default as BackIcon } from '@mui/icons-material/KeyboardBackspace';
+export { default as VerifiedIcon } from '@mui/icons-material/Verified';
+export { default as RepeatIcon } from '@mui/icons-material/Repeat';
+export { default as ChatIcon } from '@mui/icons-material/ChatBubbleOutlineOutlined';
+export { default as FavoriteIcon } from '@mui/icons-material/FavoriteBorder';
+export { default as PublishIcon } from '@mui/icons-material/Publish';
+

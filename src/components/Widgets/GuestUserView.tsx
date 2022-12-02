@@ -1,6 +1,6 @@
 
 import { useGoogleLogin } from '@react-oauth/google';
-
+import { GoogleIcon } from '../Icons'
 
 const GuestUserView = () => {
 
@@ -17,8 +17,8 @@ const GuestUserView = () => {
 
     return (
         <>
-            <div className="border m-4 p-2 rounded-lg">
-                <h2 className="font-extrabold text-lg">
+            <div className="border border-gray-100 dark:border-slate-700 m-4 p-2 rounded-lg">
+                <h2 className="font-extrabold text-lg dark:text-white">
                     New to Twitter?
                 </h2>
                 <h4 className="text-xs text-slate-500 my-2">
@@ -27,9 +27,17 @@ const GuestUserView = () => {
 
 
                 <div className="mt-3">
-                    <button className='rounded-xl w-full  py-2 px-2 font-bold capitalize  text-black border'
+                    <button className='rounded-xl w-full dark:text-white py-2 px-2 font-bold capitalize  text-black border dark:border-slate-700'
                         onClick={handleLogin}
-                    > Sign up with Google 🚀{' '}</button>
+                    >
+                        <div className='flex justify-center items-center'>
+                            <span className="pr-3 block">
+                                <GoogleIcon />
+                            </span>
+
+                            <span className='text-sm'>Sign up with Google</span>
+                        </div>
+                    </button>
 
                 </div>
             </div>

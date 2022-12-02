@@ -1,11 +1,9 @@
-import { CloseIcon } from '../../components/Icons'
+
 import TweetContainer from '../../components/TweetContainer'
+import { CloseIcon } from '../../components/Icons'
 
 
 const TweetInput = (props: any) => {
-
-    console.log("propsp---", props);
-
     const submitTweet = () => {
         console.log("New tweet")
     }
@@ -17,7 +15,7 @@ const TweetInput = (props: any) => {
                 <CloseIcon className='text-black cursor-pointer'
                     onClick={props.onClickClose}
                 />heyye
-                <TweetContainer submitTweet={submitTweet} isFromModal />
+                <TweetContainer onSubmit={submitTweet} isFromModal />
             </div>
 
         </div>

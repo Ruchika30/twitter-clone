@@ -10,6 +10,7 @@ import { EditIcom } from '../../components/Icons'
 import { color } from '../../tokens/color';
 import ModalComponent from '../../components/TweetModal'
 import useWindowSize from '../../hooks/useWindowSize'
+import NewsFeed from './NewsFeed'
 
 
 const HomePage = () => {
@@ -20,11 +21,6 @@ const HomePage = () => {
 
     if (isLoadingNewsFeed) {
         return <h2>Loading ...</h2>
-    }
-
-
-    const onClickTweet = () => {
-        console.log("New tweet")
     }
 
     const closeModal = () => {
@@ -46,20 +42,7 @@ const HomePage = () => {
 
 
             {/* News feed */}
-            <div className="text-white h-full border border-solid border-gray-100  dark:border-slate-700 overflow-y-auto
-                md:w-3/6 sm:w-full">
-
-                {/* Heading */}
-                <NewFeedHeader heading="Home" />
-
-                {/* Tweet container */}
-                <div className='hidden md:block'>
-                    <TweetContainer submitTweet={onClickTweet} />
-                </div>
-
-                {/* Post list */}
-                <Post newsFeedData={newsFeedData} />
-            </div>
+            <NewsFeed data={newsFeedData} isLoading={isLoadingNewsFeed} />
 
 
             {/* TweetIcon - mobileView */}

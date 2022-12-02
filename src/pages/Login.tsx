@@ -23,9 +23,7 @@ const Login = (): JSX.Element => {
                     }}
                 />
             </div>
-            {/* <button onClick={() => login()}>
-                Sign in with Google 🚀{' '}
-            </button>; */}
+
         </>
     )
 }

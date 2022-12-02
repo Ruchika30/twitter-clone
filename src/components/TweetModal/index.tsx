@@ -1,5 +1,6 @@
 
-import { Box, Modal } from '@material-ui/core';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
 import { CloseIcon, BackIcon } from '../../components/Icons'
 import TweetContainer from '../../components/TweetContainer'
 import { color } from '../../tokens/color';
@@ -42,7 +43,7 @@ const TweetModal = ({ isMobile, isOpen, closeModal }: {
                         <BackIcon className='text-black cursor-pointer' onClick={closeModal} />
 
                     </div>
-                    <TweetContainer submitTweet={onClickTweet} isFromModal />
+                    <TweetContainer onSubmit={onClickTweet} isFromModal />
                 </div>
 
             </Drawer>
@@ -61,7 +62,7 @@ const TweetModal = ({ isMobile, isOpen, closeModal }: {
                 <Box style={modalContentStyle} >
                     <div className="flex flex-col">
                         <CloseIcon className='text-black cursor-pointer' onClick={closeModal} />
-                        <TweetContainer submitTweet={onClickTweet} isFromModal />
+                        <TweetContainer onSubmit={onClickTweet} isFromModal />
                     </div>
 
 

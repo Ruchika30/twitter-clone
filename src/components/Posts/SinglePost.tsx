@@ -1,13 +1,9 @@
 
 
 
-import { Avatar } from "@material-ui/core";
-import VerifiedIcon from '@mui/icons-material/Verified';// import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
-import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import RepeatIcon from '@mui/icons-material/Repeat';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import PublishIcon from '@mui/icons-material/Publish';
+import Avatar from '@mui/material/Avatar';
 import { color } from "../../tokens/color";
+import { VerifiedIcon, RepeatIcon, ChatIcon, FavoriteIcon, PublishIcon } from '../../components/Icons'
 
 interface ISinglePost {
     screenName: string
@@ -54,7 +50,7 @@ const SinglePost = ({ screenName, userName, verified, avatar, beforeTime, text, 
                 {/* share, other icons */}
                 <div className="flex my-4">
                     <div className="flex-1 flex justify-start">
-                        <ChatBubbleOutlineOutlinedIcon fontSize="small" sx={{ color: 'grey' }} />
+                        <ChatIcon fontSize="small" sx={{ color: 'grey' }} />
                         <span className="text-black  dark:text-slate-200 items-center text-sm ml-2 ">{comment}</span>
                     </div>
                     <div className="flex-1 flex justify-start">
@@ -63,7 +59,7 @@ const SinglePost = ({ screenName, userName, verified, avatar, beforeTime, text, 
 
                     </div>
                     <div className="flex-1 flex justify-start ">
-                        <FavoriteBorderIcon fontSize="small" sx={{ color: 'grey' }} />
+                        <FavoriteIcon fontSize="small" sx={{ color: 'grey' }} />
                         <span className="text-black   dark:text-slate-200 items-center text-sm ml-2">{likes}</span>
                     </div>
                     <div className="flex-1 flex justify-start">

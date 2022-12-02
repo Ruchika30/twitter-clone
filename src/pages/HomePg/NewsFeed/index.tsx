@@ -1,43 +1,49 @@
 
 
 import TweetContainer from '../../../components/TweetContainer'
-import useGetNewsFeed from '../useGetNewsFeed';
 import Posts from '../../../components/Posts';
-import './style.css'
+import { AuthContext } from '../../../use-auth'
+import NewFeedHeader from '../NewsFeedHeader';
+import { useContext } from 'react';
+import GuestUserView from './GuestUserView'
+import useGetTrendingData from '../useGetTrendingData';
 
-const NewsFeed = (): JSX.Element => {
-    const { newsFeedData, isLoadingNewsFeed } = useGetNewsFeed()
+const NewsFeed = ({ data, isLoading }: { data?: {}, isLoading?: boolean }): JSX.Element => {
+    const { isLoggedIn } = useContext(AuthContext);
+    const { trendingData } = useGetTrendingData()
 
 
     const submitTweet = () => {
         console.log("New tweet")
     }
 
-    if (isLoadingNewsFeed) {
-        return <h1>Loaidng ..</h1>
+    if (isLoading) {
+        return <h1>Loading ..</h1>
     }
 
 
     return (
+        <div className="text-white h-full border border-solid border-gray-100 dark:border-slate-700
+        overflow-y-auto w-3/6 ">
+            <>
+                {isLoggedIn() ? (
+                    <>
 
-        <div className="text-white h-full border border-solid border-gray-100	
-                    overflow-y-auto w-3/6 ">
+                        {/* Heading */}
+                        <NewFeedHeader heading="Home" />
 
-            {/* Heading */}
-            <div className='bg-white sticky top-0 z-30'>
-                <h1 className='text-lg text-black  font-bold py-3 pl-4'>Home</h1>
-            </div>
+                        {/* Tweet container */}
+                        <TweetContainer onSubmit={submitTweet} />
 
-            {/* Tweet container */}
-            <TweetContainer submitTweet={submitTweet} />
+                        {/* Post list */}
+                        <Posts newsFeedData={data} />
+                    </>
 
+                ) : <>
+                    <GuestUserView data={trendingData} />
+                </>}
 
-
-            {/* Post list */}
-            <Posts newsFeedData={newsFeedData} />
-
-
-
+            </>
         </div>
 
     )
