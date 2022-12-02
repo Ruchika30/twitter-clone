@@ -1,7 +1,7 @@
 # Twitter-clone
 
-This app supports Google Signup Login
-To view changes for Dark mode, kindly switch to Dark more under System Setting/ Appearance
+This app supports Google Signup Login.\
+To view changes in Dark mode, kindly switch to Dark more under System Setting/ Appearance
 
 ## Available Scripts
 
